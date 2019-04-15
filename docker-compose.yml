@@ -1,6 +1,12 @@
-version: '3.0'
+version: "3.0"
 services:
-  app:
-    build: '.'
+  client:
+    build: "."
+    command: ["npm", "start"]
+    restart: always
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "3000:3000"
     volumes:
       - ./:/home/node/app

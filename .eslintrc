@@ -9,13 +9,7 @@
   "rules": {
     "function-paren-newline": ["error", "consistent"],
     "implicit-arrow-linebreak": "off",
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
-        "newlines-between": "always"
-      }
-    ],
+    "import/order": ["off"],
     "jsx-a11y/anchor-is-valid": "off",
     "lines-between-class-members": "off",
     "object-curly-newline": ["error", { "consistent": true }],
