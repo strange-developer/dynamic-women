@@ -22,6 +22,15 @@ module.exports = {
   },
   devtool: 'cheap-module-source-map',
   mode: 'development',
+  module: {
+    rules: [
+      {
+        exclude: [/node_modules/, /\.test\.jsx?$/],
+        test: /\.jsx?$/,
+        use: [{ loader: 'babel-loader' }],
+      },
+    ],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       cspPlugin: {
