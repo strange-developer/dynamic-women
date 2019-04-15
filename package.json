@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "private": true,
   "scripts": {
-    "build:dev": "webpack-dev-server --config ./.webpack/webpack.config.js",
+    "build:dev": "webpack --config ./.webpack/webpack.config.js",
     "start": "webpack-dev-server --config ./.webpack/webpack.config.js --hot"
   },
   "repository": {

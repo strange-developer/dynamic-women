@@ -5,10 +5,11 @@ const join = path.join.bind(null, __dirname, '..');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['@babel/polyfill', './src/index.jsx'],
+  context: join('src'),
+  entry: ['@babel/polyfill', '../src/index.jsx'],
   output: {
     filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: join('dist'),
     publicPath: '/',
   },
   devServer: {
@@ -40,7 +41,7 @@ module.exports = {
         nonceEnabled: { 'script-src': false, 'style-src': false },
       },
       title: 'Dynamic Women',
-      template: './src/index.html',
+      template: '../src/index.html',
     }),
   ],
   resolve: {
