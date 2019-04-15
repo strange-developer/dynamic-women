@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   devServer: {
     clientLogLevel: 'error',
@@ -29,7 +30,7 @@ module.exports = {
         nonceEnabled: { 'script-src': false, 'style-src': false },
       },
       title: 'Dynamic Women',
-      template: '../src/index.html',
+      template: './src/index.html',
     }),
   ],
   resolve: {
