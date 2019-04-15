@@ -4,7 +4,7 @@ const join = path.join.bind(null, __dirname, '..');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['@babel/polyfill', '../src/index.jsx'],
+  entry: ['@babel/polyfill', './src/index.jsx'],
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
