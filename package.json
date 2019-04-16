@@ -6,18 +6,18 @@
   "private": true,
   "scripts": {
     "build:dev": "webpack --config ./.webpack/webpack.config.js",
-    "start": "webpack-dev-server --config ./.webpack/webpack.config.js --hot"
+    "start": "webpack-dev-server --config ./.webpack/webpack.config.js --hot --cert ./.ssl/localhost.cert --key ./.ssl/localhost.key --https"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/strange-developer/crypto-roi.git"
+    "url": "git+https://github.com/strange-developer/dynamic-women.git"
   },
   "author": "Chamir Bodasing",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/strange-developer/crypto-roi/issues"
+    "url": "https://github.com/strange-developer/dynamic-women/issues"
   },
-  "homepage": "https://github.com/strange-developer/crypto-roi#readme",
+  "homepage": "https://github.com/strange-developer/dynamic-women#readme",
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
