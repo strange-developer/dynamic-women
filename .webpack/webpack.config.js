@@ -3,6 +3,7 @@ const path = require('path');
 const join = path.join.bind(null, __dirname, '..');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   context: join('src'),
@@ -33,6 +34,22 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        common: {
+          chunks: 'async',
+          enforce: true,
+          minChunks: 2,
+          name: 'common',
+          priority: 10,
+          reuseExistingChunk: true,
+        },
+        default: false,
+        vendors: false,
+      },
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       cspPlugin: {
@@ -43,6 +60,7 @@ module.exports = {
       title: 'Dynamic Women',
       template: '../src/index.html',
     }),
+    new CopyWebpackPlugin([{ from: '../src/assets/images', to: './assets/images' }]),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
