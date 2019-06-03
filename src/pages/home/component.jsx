@@ -1,46 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Background = styled.div`
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  background: url('./assets/images/background.jpg') no-repeat;
-  background-size: cover;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.3;
-  z-index: 1;
-`;
-
-const ColorOverlay = styled.div`
-  position: absolute;
-  background-color: #d9d9d9;
-  background-size: cover;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-`;
+import { BackgroundImageLayout } from 'shared/components/layout';
+import TextInput from 'shared/components/text-input';
 
 const SearchContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 70vh;
+  padding: 24px;
+  width: 100%;
 `;
 
 const Home = () => (
-  <ColorOverlay>
-    <Background>
-      <SearchContainer>
-        <input type="text" />
-      </SearchContainer>
-    </Background>
-  </ColorOverlay>
+  <BackgroundImageLayout>
+    <SearchContainer>
+      <TextInput type="text" />
+    </SearchContainer>
+  </BackgroundImageLayout>
 );
 
 export default Home;
