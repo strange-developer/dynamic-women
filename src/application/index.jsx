@@ -1,21 +1,24 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hot } from 'react-hot-loader';
-import { Provider } from 'react-redux';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import modernNormalize from 'styled-modern-normalize';
 
-import store from 'reducers/store';
-
 import Routes from './routes';
+import Header from './header';
 
 const ModernNormalize = createGlobalStyle`${modernNormalize}`;
 
+const PageBackground = styled.div`
+  background: #f1f2f7;
+`;
+
 const Application = () => (
-  <Provider store={store}>
+  <PageBackground>
     <ModernNormalize />
+    <Header />
     <Routes />
-  </Provider>
+  </PageBackground>
 );
 
 export default hot(module)(Application);
