@@ -1,15 +1,18 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
-
-const join = path.join.bind(null, __dirname, '..');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+const join = path.join.bind(null, __dirname, '..');
 
 module.exports = {
   context: join('src'),
   entry: ['@babel/polyfill', '../src/index.jsx'],
   output: {
-    filename: '[name].[hash].js',
+    filename: '[name].js',
     path: join('dist'),
     publicPath: '/',
   },
@@ -32,23 +35,36 @@ module.exports = {
         test: /\.jsx?$/,
         use: [{ loader: 'babel-loader' }],
       },
+      // { test: /\.scss$/, enforce: 'pre', loader: 'import-glob-loader2' },
+      // {
+      //   exclude: [/node_modules/],
+      //   test: /\.scss$/,
+      //   use: [
+      //     { loader: 'style-loader' },
+      //     { loader: 'css-loader' },
+      //     { loader: 'postcss-loader' },
+      //     { loader: 'sass-loader', options: { includePaths: ['node_modules', 'src'] } },
+      //   ],
+      // },
+      // {
+      //   test: /\.css$/,
+      //   use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+      // },
     ],
   },
   optimization: {
     splitChunks: {
-      cacheGroups: {
-        common: {
-          chunks: 'async',
-          enforce: true,
-          minChunks: 2,
-          name: 'common',
-          priority: 10,
-          reuseExistingChunk: true,
-        },
-        default: false,
-        vendors: false,
-      },
+      chunks: 'all',
     },
+    minimizer: [
+      new UglifyJSPlugin({
+        uglifyOptions: {
+          mangle: {
+            safari10: true,
+          },
+        },
+      }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -60,7 +76,7 @@ module.exports = {
       title: 'Dynamic Women',
       template: '../src/index.html',
     }),
-    new CopyWebpackPlugin([{ from: '../src/assets/images', to: './assets/images' }]),
+    new CopyWebpackPlugin([{ from: '../src/assets', to: './assets' }]),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
