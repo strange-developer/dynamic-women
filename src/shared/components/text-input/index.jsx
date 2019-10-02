@@ -4,11 +4,12 @@ import styled from 'styled-components';
 
 import colors from '../../style-guide/colors';
 
-const InputContainer = styled.div`
-  width: 100%;
+const TextFieldContainer = styled.div`
+  display: flex;
+  height: 52px;
 `;
 
-const InputField = styled.input`
+const TextField = styled.input`
   background-color: ${colors.input.background};
   border: 1px solid ${colors.input.border};
   color: ${colors.input.font};
@@ -16,19 +17,21 @@ const InputField = styled.input`
   width: 100%;
 `;
 
-const TextInput = ({ type, value }) => (
-  <InputContainer>
-    <InputField type={type} value={value} />
-  </InputContainer>
+const TextInput = ({ type, value, Adornment, ...props }) => (
+  <TextFieldContainer>
+    <TextField type={type} value={value} {...props} />
+  </TextFieldContainer>
 );
 
 TextInput.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string.isRequired,
+  Adornment: PropTypes.func,
 };
 
 TextInput.defaultProps = {
   type: 'text',
+  Adornment: undefined,
 };
 
 export default TextInput;
