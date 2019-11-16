@@ -6,7 +6,14 @@ const Container = styled.div`
   margin: 12px 8px;
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
   background-color: #fff;
+  width: 100%;
+
+  @media screen and (min-width: 640px) {
+    width: 600px;
+  }
 `;
+
+const CenterContainer = styled.div``;
 
 const CompanyHeadingContainer = styled.div`
   display: flex;
@@ -56,18 +63,20 @@ non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 
 const SearchResult = () => (
   <Container>
-    <CompanyHeadingContainer>
-      <LogoContainer>
-        <Logo src="/assets/images/derivco-logo.jpg" />
-      </LogoContainer>
-      <CompanyNameContainer>
-        <div>Company Name</div>
-      </CompanyNameContainer>
-    </CompanyHeadingContainer>
-    <CompanyDescriptionContainer>
-      <BlockEllipsis>{text}</BlockEllipsis>
-    </CompanyDescriptionContainer>
-    <div>Tags</div>
+    <CenterContainer>
+      <CompanyHeadingContainer>
+        <LogoContainer>
+          <Logo src="/assets/images/derivco-logo.jpg" />
+        </LogoContainer>
+        <CompanyNameContainer>
+          <div>Company Name</div>
+        </CompanyNameContainer>
+      </CompanyHeadingContainer>
+      <CompanyDescriptionContainer>
+        <BlockEllipsis>{text}</BlockEllipsis>
+      </CompanyDescriptionContainer>
+      <div>Tags</div>
+    </CenterContainer>
   </Container>
 );
 
