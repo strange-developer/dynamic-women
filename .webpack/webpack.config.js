@@ -35,21 +35,6 @@ module.exports = {
         test: /\.jsx?$/,
         use: [{ loader: 'babel-loader' }],
       },
-      // { test: /\.scss$/, enforce: 'pre', loader: 'import-glob-loader2' },
-      // {
-      //   exclude: [/node_modules/],
-      //   test: /\.scss$/,
-      //   use: [
-      //     { loader: 'style-loader' },
-      //     { loader: 'css-loader' },
-      //     { loader: 'postcss-loader' },
-      //     { loader: 'sass-loader', options: { includePaths: ['node_modules', 'src'] } },
-      //   ],
-      // },
-      // {
-      //   test: /\.css$/,
-      //   use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
-      // },
     ],
   },
   optimization: {
